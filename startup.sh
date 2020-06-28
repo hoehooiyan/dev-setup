@@ -1,27 +1,27 @@
-echo 'Hello ${whoami)! Let\'s get you set up!'
+echo "Hello $(whoami)! Let's get you set up!"
 
 sudo apt-get update
 
-echo 'installing curl'
+echo "installing curl"
 sudo apt-get install curl -y
 
-echo 'installing other essential'
+echo "installing other essential"
 sudo apt-get install build-essential libssl-dev -y
 
-echo 'installing tool to handle clipboard via CLI'
+echo "installing tool to handle clipboard via CLI"
 sudo apt-get install xclip -y
 
-echo 'installing ripgrep'
+echo "installing ripgrep"
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 sudo dpkg -i ripgrep_11.0.2_amd64.deb
 
-echo 'installing vim'
+echo "installing vim"
 sudo apt-get install vim -y
 
-echo 'installing git'
+echo "installing git"
 sudo apt-get install git -y
 
-echo 'What name do you want to use in GIT user.name?'
+echo "What name do you want to use in GIT user.name?"
 read git_config_user_name
 git config --global user.name "$git_config_user_name"
 clear
@@ -31,7 +31,7 @@ read git_config_user_email
 git config --global user.email "$git_config_user_email"
 clear
 
-echo 'Can I set VIM as your default GIT editor for you? (y/n)'
+echo "Can I set VIM as your default GIT editor for you? (y/n)"
 read git_core_editor_to_vim
 if echo "$git_core_editor_to_vim" | grep -iq "^y" ;then
 	git config --global core.editor vim
@@ -39,36 +39,36 @@ else
 	echo "Okay, no problem. :) Let's move on!"
 fi
 
-echo 'installing hub'
+echo "installing hub"
 sudo apt-get install hub -y
 
-echo 'enerating SSH key'
-ssh-keygen -t rsa -b 4096 -C 'hoehooiyan@gmail.com'
+echo "enerating SSH key"
+ssh-keygen -t rsa -b 4096 -C "hoehooiyan@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_github
 cat ~/.ssh/id_rsa_github.pub | xclip -selection clipboard
 
-echo 'installing zsh'
+echo "installing zsh"
 sudo apt-get install zsh -y
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 chsh -s /bin/zsh
 
-echo 'installing autosuggestions' 
+echo "installing autosuggestions"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 source ~/.zshrc
 
-echo 'installing vscode'
+echo "installing vscode"
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c "echo 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main' > /etc/apt/sources.list.d/vscode.list"
 sudo apt-get install apt-transport-https -y
 sudo apt-get update
 sudo apt-get install code -y # or code-insiders
 
-echo 'installing vscode extensions'
+# echo "installing vscode extensions"
 
-echo 'installing nvm'
+echo "installing nvm"
 sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.0/install.sh | bash)"
 
 export NVM_DIR="$HOME/.nvm" && (
@@ -83,26 +83,25 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.zshrc
 nvm --version
 
-echo 'installing node'
+echo "installing node"
 nvm install node
 
-echo 'installing node - lts'
+echo "installing node - lts"
 nvm install --lts
 
-echo 'set to use lts version'
+echo "set to use lts version"
 nvm use --lts
 
-echo 'node --version'
+echo "node --version"
 node --version
-echo 'npm --version' 
+
+echo "npm --version'"
 npm --version
 
-echo 'installing npm global packages'
-npm install --global npm-check-updates npm-check-updates serve \
-nodemon gatsby-cli gitmoji-cli
+echo "installing npm global packages"
+npm install --global npm-check-updates npm-check-updates serve nodemon gatsby-cli gitmoji-cli
 
-echo 'installing firefox developer edition'
+# echo "installing firefox developer edition"
 
-echo 'installing vlc'
+echo "installing vlc"
 sudo snap install vlc
-
