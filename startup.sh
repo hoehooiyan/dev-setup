@@ -1,4 +1,4 @@
-echo "Hello ${whoami)! Let's get you set up!"
+echo 'Hello ${whoami)! Let\'s get you set up!'
 
 sudo apt-get update
 
@@ -11,23 +11,27 @@ sudo apt-get install build-essential libssl-dev -y
 echo 'installing tool to handle clipboard via CLI'
 sudo apt-get install xclip -y
 
+echo 'installing ripgrep'
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+sudo dpkg -i ripgrep_11.0.2_amd64.deb
+
 echo 'installing vim'
 sudo apt-get install vim -y
 
 echo 'installing git'
 sudo apt-get install git -y
 
-echo "What name do you want to use in GIT user.name?"
+echo 'What name do you want to use in GIT user.name?'
 read git_config_user_name
 git config --global user.name "$git_config_user_name"
 clear
 
 echo "What email do you want to use in GIT user.email"
 read git_config_user_email
-git config --global user.email $git_config_user_email
+git config --global user.email "$git_config_user_email"
 clear
 
-echo "Can I set VIM as your default GIT editor for you? (y/n)"
+echo 'Can I set VIM as your default GIT editor for you? (y/n)'
 read git_core_editor_to_vim
 if echo "$git_core_editor_to_vim" | grep -iq "^y" ;then
 	git config --global core.editor vim
@@ -38,10 +42,11 @@ fi
 echo 'installing hub'
 sudo apt-get install hub -y
 
-echo "generating SSH key"
-ssh-keygen -t rsa -b 4096 -C $git_config_user_email
-ssh-add ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
+echo 'enerating SSH key'
+ssh-keygen -t rsa -b 4096 -C 'hoehooiyan@gmail.com'
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_github
+cat ~/.ssh/id_rsa_github.pub | xclip -selection clipboard
 
 echo 'installing zsh'
 sudo apt-get install zsh -y
@@ -62,7 +67,6 @@ sudo apt-get update
 sudo apt-get install code -y # or code-insiders
 
 echo 'installing vscode extensions'
-
 
 echo 'installing nvm'
 sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.0/install.sh | bash)"
@@ -88,8 +92,17 @@ nvm install --lts
 echo 'set to use lts version'
 nvm use --lts
 
+echo 'node --version'
 node --version
+echo 'npm --version' 
 npm --version
 
-echo 'install npm global packages'
-npm install --global npm-check-updates npm-check-updates serve nodemon gatsby-cli gitmoji-cli
+echo 'installing npm global packages'
+npm install --global npm-check-updates npm-check-updates serve \
+nodemon gatsby-cli gitmoji-cli
+
+echo 'installing firefox developer edition'
+
+echo 'installing vlc'
+sudo snap install vlc
+
