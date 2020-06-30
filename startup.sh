@@ -134,3 +134,17 @@ echo "setting mysql password same as phpmyadmin"
 
 echo "installing vlc"
 sudo snap install vlc
+
+##########################
+# setting up macOS theme #
+##########################
+
+echo "installing gnome-tweaks"
+sudo apt-get install gnome-tweaks -y
+
+echo "instaling gnome-shell-extension"
+sudo apt-get install gnome-shell-extension -y
+
+
+
+
