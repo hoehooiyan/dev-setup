@@ -67,6 +67,7 @@ sudo apt-get update
 sudo apt-get install code -y # or code-insiders
 
 # echo "installing vscode extensions"
+# install php extension
 
 echo "installing nvm"
 sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.0/install.sh | bash)"
@@ -100,6 +101,34 @@ npm --version
 
 echo "installing npm global packages"
 npm install --global npm-check-updates npm-check-updates serve nodemon gatsby-cli gitmoji-cli
+
+############################
+# Setting up LAMP stack tools #
+############################
+
+echo "installing apache"
+sudo apt-get install apache2 -y
+
+echo "installing php"
+sudo apt-get install php libapache2-mod-php -y
+
+# move index.html after index.php
+
+echo "modify current user to access apache folders"
+sudo chown hooiyan:hooiyan -R ./
+
+echo "installing mysql"
+sudo apt-get install mysql-server -y
+
+echo "checking mysql status"
+sudo service mysql status
+
+echo "installing phpmyadmin"
+sudo apt-get install phpmyadmin -y
+
+echo "setting mysql password same as phpmyadmin"
+
+# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
 
 # echo "installing firefox developer edition"
 
