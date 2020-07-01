@@ -143,12 +143,10 @@ echo "npm --version'"
 npm --version
 
 echo "installing npm global packages"
-npm install --global npm-check-updates npm-check-updates serve nodemon gatsby-cli gitmoji-cli
+npm install --global npm-check-updates npm-quick-run serve nodemon gatsby-cli gitmoji-cli
 
 ###############################
-#						 	  #
 # Setting up LAMP stack tools #
-#							  #
 ###############################
 
 echo "installing apache"
