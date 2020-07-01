@@ -59,15 +59,58 @@ echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 source ~/.zshrc
 
 echo "installing vscode"
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c "echo 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main' > /etc/apt/sources.list.d/vscode.list"
-sudo apt-get install apt-transport-https -y
-sudo apt-get update
-sudo apt-get install code -y # or code-insiders
+sudo snap install code --classic
 
 # echo "installing vscode extensions"
-# install php extension
+code --install-extension eliverlara.andromeda
+code --install-extension formulahendry.auto-close-tag
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension steoates.autoimport
+code --install-extension mgmcdermott.vscode-language-babel
+code --install-extension aaron-bond.better-comments
+code --install-extension coenraads.bracket-pair-colorizer
+code --install-extension pustelto.bracketeer
+code --install-extension wesbos.theme-cobalt2
+code --install-extension wiggin77.codedox
+code --install-extension bierner.color-info
+code --install-extension kamikillerto.vscode-colorize
+code --install-extension exodiusstudios.comment-anchors
+code --install-extension stackbreak.comment-divider
+code --install-extension alexdima.copy-relative-path
+code --install-extension pranaygp.vscode-css-peek
+code --install-extension denoland.vscode-deno
+code --install-extension editorconfig.editorconfig
+code --install-extension digitalbrainstem.javascript-ejs-support
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension toba.vsfire
+code --install-extension golang.go
+code --install-extension prisma.vscode-graphql
+code --install-extension ecmel.vscode-html-css
+code --install-extension abusaidm.html-snippets
+code --install-extension kisstkondoros.vscode-gutter-preview
+# code --install-extension pushqrdx.inline-html 
+# some problem here
+code --install-extension zignd.html-css-class-completion
+code --install-extension xabikos.javascriptsnippets
+code --install-extension lllllllqw.jsdoc
+code --install-extension ritwickdey.live-sass
+code --install-extension ritwickdey.liveserver
+code --install-extension tyriar.lorem-ipsum
+code --install-extension equinusocio.moxer-icons
+code --install-extension eg2.vscode-npm-script
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension ibm.output-colorizer
+code --install-extension christian-kohler.path-intellisense
+code --install-extension esbenp.prettier-vscode
+code --install-extension richie5um2.vscode-sort-json
+code --install-extension visualstudioexptteam.vscodeintellicode
+code --install-extension jaspermorth.vscode-pigments
+code --install-extension jkjustjoshing.vscode-text-pastry
+code --install-extension jamesbirtles.svelte-vscode
+code --install-extension ardenivanov.svelte-intellisense
+code --install-extension alan.stylus
+code --install-extension shan.code-settings-sync
 
 echo "installing nvm"
 sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.0/install.sh | bash)"
@@ -102,9 +145,11 @@ npm --version
 echo "installing npm global packages"
 npm install --global npm-check-updates npm-check-updates serve nodemon gatsby-cli gitmoji-cli
 
-############################
+###############################
+#						 	  #
 # Setting up LAMP stack tools #
-############################
+#							  #
+###############################
 
 echo "installing apache"
 sudo apt-get install apache2 -y
@@ -133,7 +178,10 @@ echo "setting mysql password same as phpmyadmin"
 # echo "installing firefox developer edition"
 
 echo "installing vlc"
-sudo snap install vlc
+sudo snap install vlc -y
+
+echo "installing spotify"
+sudo snap install spotify -y
 
 ##########################
 # setting up macOS theme #
@@ -144,7 +192,3 @@ sudo apt-get install gnome-tweaks -y
 
 echo "instaling gnome-shell-extension"
 sudo apt-get install gnome-shell-extension -y
-
-
-
-
