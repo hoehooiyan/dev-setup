@@ -13,7 +13,7 @@ module.exports = {
 
     // font family with optional fallbacks
     fontFamily:
-      '"JetBrains Mono", "Operator Mono", "Inconsolata for Powerline", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+      '"JetBrains Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: '500',
@@ -50,7 +50,7 @@ module.exports = {
     selectionColor: 'rgba(248,28,229,0.3)',
 
     // border color (window, tabs)
-    // borderColor: "#333",
+    borderColor: '#fff',
 
     // custom CSS to embed in the main window
     css: '',
@@ -150,12 +150,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [
-    'hyper-tab-icons',
-    'hyper-systray',
-    'hyper-highlight-active-pane',
-    'hyper-search',
-  ],
+  plugins: ['hyper-tab-icons', 'hyper-systray', 'hyper-highlight-active-pane'],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
