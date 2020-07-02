@@ -1,8 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 
-PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
-export PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -11,10 +8,6 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
-#robbyrussell
-#awesomepanda
-#agnoster
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,7 +68,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,12 +97,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias mongod="/C/Program\ files/MongoDB/Server/4.0/bin/mongod.exe"
-# alias mongo="/C/Program\ files/MongoDB/Server/4.0/bin/mongo.exe"
 alias open="explorer"
-alias kata="cd d:/DEV/kata"
-alias project="cd d:/DEV/project"
-alias tut="cd d:/DEV/tutorial"
+alias kata="cd d:/Code/kata"
+alias project="cd d:/Code/project"
+alias tut="cd d:/Code/tutorial"
 alias st="git status"
 alias add="git add"
 alias ci="git commit -m"
