@@ -1,35 +1,33 @@
-echo "Hello $(whoami)! Let's get you set up!"
+echo "Welcome $(whoami)! Let's get you set up!"
 
+echo "Verify yourself as $(whoami), please..."
 sudo apt-get update
 
-echo "installing curl"
+echo "Installing curl"
 sudo apt-get install curl -y
 
-echo "installing other essential"
+echo "Installing other essential"
 sudo apt-get install build-essential libssl-dev -y
 
-echo "installing tool to handle clipboard via CLI"
+echo "Installing tool to handle clipboard via CLI"
 sudo apt-get install xclip -y
 
-echo "installing ripgrep"
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
-sudo dpkg -i ripgrep_11.0.2_amd64.deb
-
-echo "installing vim"
+echo "Installing vim"
 sudo apt-get install vim -y
 
-echo "installing git"
+echo "Installing git"
 sudo apt-get install git -y
+
+echo "Checking the installed git version"
+git --version
 
 echo "What name do you want to use in GIT user.name?"
 read git_config_user_name
 git config --global user.name "$git_config_user_name"
-clear
 
 echo "What email do you want to use in GIT user.email"
 read git_config_user_email
 git config --global user.email "$git_config_user_email"
-clear
 
 echo "Can I set VIM as your default GIT editor for you? (y/n)"
 read git_core_editor_to_vim
@@ -39,29 +37,36 @@ else
 	echo "Okay, no problem. :) Let's move on!"
 fi
 
-echo "installing hub"
+echo "Installing hub - better git"
 sudo apt-get install hub -y
 
-echo "enerating SSH key"
-ssh-keygen -t rsa -b 4096 -C "hoehooiyan@gmail.com"
+echo "Generating SSH key for GitHub"
+ssh-keygen -t rsa -b 4096 -C $git_config_user_email
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa_github
-cat ~/.ssh/id_rsa_github.pub | xclip -selection clipboard
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 
-echo "installing zsh"
+echo "Installing zsh"
 sudo apt-get install zsh -y
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+echo "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s /bin/zsh
 
-echo "installing autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+echo "Installing zsh autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+echo "source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions" >> ~/.zshrc
 source ~/.zshrc
 
-echo "installing vscode"
+echo "Installing zsh syntax highlighting"
+git clone http://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+echo "source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting >> ~/.zshrc"
+source ~/.zshrc
+
+echo "Installing vscode"
 sudo snap install code --classic
 
-# echo "installing vscode extensions"
+echo "Installing vscode extensions"
 code --install-extension eliverlara.andromeda
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
@@ -89,8 +94,6 @@ code --install-extension prisma.vscode-graphql
 code --install-extension ecmel.vscode-html-css
 code --install-extension abusaidm.html-snippets
 code --install-extension kisstkondoros.vscode-gutter-preview
-# code --install-extension pushqrdx.inline-html 
-# some problem here
 code --install-extension zignd.html-css-class-completion
 code --install-extension xabikos.javascriptsnippets
 code --install-extension lllllllqw.jsdoc
@@ -111,82 +114,76 @@ code --install-extension jamesbirtles.svelte-vscode
 code --install-extension ardenivanov.svelte-intellisense
 code --install-extension alan.stylus
 code --install-extension shan.code-settings-sync
+code --install-extension hoovercj.vscode-power-mode
 
-echo "installing nvm"
-sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.0/install.sh | bash)"
+echo "Installing nvm"
+sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash)"
 
-export NVM_DIR="$HOME/.nvm" && (
-git clone https://github.com/creationix/nvm.git "$NVM_DIR"
-cd "$NVM_DIR"
-git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-) && \. "$NVM_DIR/nvm.sh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 source ~/.zshrc
-nvm --version
 
-echo "installing node"
+echo "Installing node"
 nvm install node
 
-echo "installing node - lts"
+echo "Installing LTS version of node"
 nvm install --lts
 
-echo "set to use lts version"
+echo "Setting to use the LTS node version"
 nvm use --lts
 
-echo "node --version"
+echo "Checking the installed nvm version"
+nvm --version
+
+echo "Checking the installed node version"
 node --version
 
-echo "npm --version'"
+echo "Checking the installed npm version"
 npm --version
 
-echo "installing npm global packages"
+echo "Installing some npm global packages"
 npm install --global npm-check-updates npm-quick-run serve nodemon gatsby-cli gitmoji-cli
 
 ###############################
 # Setting up LAMP stack tools #
 ###############################
 
-echo "installing apache"
+echo "Installing apache"
 sudo apt-get install apache2 -y
 
-echo "installing php"
+echo "Installing php"
 sudo apt-get install php libapache2-mod-php -y
 
-# move index.html after index.php
+echo "Now, please move index.html after index.php"
 
-echo "modify current user to access apache folders"
+echo "Modifying access permission to apache folders for current user"
 sudo chown hooiyan:hooiyan -R ./
 
-echo "installing mysql"
+echo "Installing mysql"
 sudo apt-get install mysql-server -y
 
-echo "checking mysql status"
+echo "Checking mysql status"
 sudo service mysql status
 
-echo "installing phpmyadmin"
+echo "Installing phpmyadmin"
 sudo apt-get install phpmyadmin -y
 
-echo "setting mysql password same as phpmyadmin"
+echo "Setting mysql password same as phpmyadmin"
 
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
 
-# echo "installing firefox developer edition"
-
-echo "installing vlc"
+echo "Installing vlc"
 sudo snap install vlc -y
 
-echo "installing spotify"
+echo "Installing spotify"
 sudo snap install spotify -y
 
 ##########################
-# setting up macOS theme #
+# Setting up macOS theme #
 ##########################
 
-echo "installing gnome-tweaks"
+echo "Installing gnome-tweaks"
 sudo apt-get install gnome-tweaks -y
 
-echo "instaling gnome-shell-extension"
+echo "Instaling gnome-shell-extension"
 sudo apt-get install gnome-shell-extension -y
