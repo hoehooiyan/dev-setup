@@ -13,7 +13,7 @@ module.exports = {
 
     // font family with optional fallbacks
     fontFamily:
-      '"JetBrains Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+      '"JetBrains Mono", "Operator Mono", "Inconsolata for Powerline", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: '500',
@@ -40,17 +40,17 @@ module.exports = {
     cursorBlink: false,
 
     // color of the text
-    // foregroundColor: '#fff',
+    foregroundColor: '#fff',
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: '#122738',
+    backgroundColor: '#16161e',
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
 
     // border color (window, tabs)
-    borderColor: '#fff',
+    borderColor: '#333',
 
     // custom CSS to embed in the main window
     css: '',
