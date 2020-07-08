@@ -13,10 +13,10 @@ module.exports = {
 
     // font family with optional fallbacks
     fontFamily:
-      '"JetBrains Mono", "Operator Mono", "Inconsolata for Powerline", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+      '"Dank Mono", "Anonymous Pro", "JetBrains Mono", "Operator Mono", "Inconsolata for Powerline", Menlo,  Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
-    fontWeight: '500',
+    // fontWeight: '500',
 
     // font weight for bold characters: 'normal' or 'bold'
     // fontWeightBold: 'bold',
@@ -37,20 +37,20 @@ module.exports = {
     cursorShape: 'BEAM',
 
     // set to `true` (without backticks and without quotes) for blinking cursor
-    cursorBlink: false,
+    cursorBlink: true,
 
     // color of the text
     foregroundColor: '#fff',
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: '#16161e',
+    // backgroundColor: '#16161e',
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
 
     // border color (window, tabs)
-    borderColor: '#333',
+    borderColor: 'green',
 
     // custom CSS to embed in the main window
     css: '',
@@ -150,7 +150,14 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyper-tab-icons', 'hyper-systray', 'hyper-highlight-active-pane'],
+  plugins: [
+    'hyper-tab-icons',
+    'hyper-systray',
+    'hyper-highlight-active-pane',
+    // 'hyper-flat',
+    // 'hyper-night-owl',
+    'hyper-website-theme',
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
