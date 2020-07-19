@@ -7,7 +7,7 @@ echo "Installing curl"
 sudo apt-get install curl -y
 
 echo "Installing other essential"
-sudo apt-get install build-essential libssl-dev -y
+sudo apt-get install build-essential libssl-dev dkms linux-headers-$(uname -r) -y
 
 echo "Installing tool to handle clipboard via CLI"
 sudo apt-get install xclip -y
@@ -143,6 +143,15 @@ npm --version
 
 echo "Installing some npm global packages"
 npm install --global npm-check-updates npm-quick-run serve nodemon gatsby-cli gitmoji-cli
+
+echo "Installing yarn"
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt install --no-install-recommends yarn
+
+echo "Installing google chrome"
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
 
 ###############################
 # Setting up LAMP stack tools #
