@@ -141,17 +141,32 @@ node --version
 echo "Checking the installed npm version"
 npm --version
 
-echo "Installing some npm global packages"
-npm install --global npm-check-updates npm-quick-run serve nodemon gatsby-cli gitmoji-cli
-
 echo "Installing yarn"
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt install --no-install-recommends yarn
 
+echo "Installing some npm global packages"
+yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel
+
 echo "Installing google chrome"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
+
+echo "Installing heroku cli"
+curl https://cli-assets.heroku.com/install.sh | sh
+
+echo "Installing mongodb"
+sudo apt install mongodb
+sudo systemctl status mongodb
+sudo systemctl start mongodb
+
+echo "Installing albert"
+curl https://build.opensuse.org/projects/home:manuelschneid3r/public_key | sudo apt-key add -
+echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
+sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
+sudo apt update
+sudo apt install albert
 
 ###############################
 # Setting up LAMP stack tools #
