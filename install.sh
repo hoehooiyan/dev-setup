@@ -107,7 +107,7 @@ sudo systemctl status mongod
 sudo systemctl enable mongod
 
 echo "Installing postman..." | lolcat
-sudo wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
+wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
 sudo tar -xvzf postman-linux-x64.tar.gz -C /opt
 sudo ln -s /opt/Postman/Postman /usr/bin/postman
 cat << EOF > ~/.local/share/applications/postman2.desktop
@@ -130,26 +130,13 @@ echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbunt
 sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
 sudo apt-get install albert -y
 
-# Setup the repository
-#
-
+echo "Installing pgAdmin..." | lolcat
 # Install the public key for the repository (if not done previously):
 curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
-
 # Create the repository configuration file:
 sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
-
 # Install for both desktop and web modes:
-sudo apt install pgadmin4
-
-# Install for desktop mode only:
-sudo apt install pgadmin4-desktop
-
-# Install for web mode only: 
-sudo apt install pgadmin4-web 
-
-# Configure the webserver, if you installed pgadmin4-web:
-sudo /usr/pgadmin4/bin/setup-web.sh
+sudo apt-get install pgadmin4 -y
 
 echo "Installing apache..." | lolcat
 sudo apt-get install apache2 -y
@@ -169,6 +156,11 @@ sudo mysql
 echo "Installing phpmyadmin..." | lolcat
 sudo apt-get install phpmyadmin -y
 
+echo "Installing Android Studio..." | lolcat
+wget https://dl.google.com/dl/android/studio/ide-zips/4.0.1/android-studio-ide-193.6626763-linux.tar.gz
+sudo tar -xvzf android-studio-ide-193.6626763-linux.tar.gz
+cd android-studio && cd bin && ./studio.sh
+
 echo "Installing vlc..." | lolcat
 sudo snap install vlc -y
 
@@ -181,9 +173,9 @@ sudo apt-get install gnome-shell-extensions -y
 echo "Installing dconf-editor..." | lolcat # for configuring ubuntu dock
 sudo apt-get install dconf-editor -y
 
-echo "Almost there... Now, please do the following..." | lolcat
-
-echo "Now, please move index.html after index.php..." | lolcat
-echo "Modifying access permission to apache folders for current user..." | lolcat
-sudo chown hooiyan:hooiyan -R ./
-echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';" | lolcat
+# to be continued...
+# echo "Almost there... Now, please do the following..." | lolcat
+# echo "Now, please move index.html after index.php..." | lolcat
+# echo "Modifying access permission to apache folders for current user..." | lolcat
+# sudo chown hooiyan:hooiyan -R ./
+# echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';" | lolcat
