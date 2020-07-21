@@ -9,6 +9,15 @@ sudo apt-get install curl -y
 echo "Installing other essential"
 sudo apt-get install build-essential libssl-dev dkms linux-headers-$(uname -r) -y
 
+echo "Installing cowsay"
+sudo apt-get install cowsay -y
+
+echo "Installing fortune"
+sudo apt-get install fortune -y
+
+echo "Installing lolcat"
+sudo apt-get install lolcat -y
+
 echo "Installing tool to handle clipboard via CLI"
 sudo apt-get install xclip -y
 
@@ -37,9 +46,6 @@ else
 	echo "Okay, no problem. :) Let's move on!"
 fi
 
-echo "Installing hub - better git"
-sudo apt-get install hub -y
-
 echo "Generating SSH key for GitHub"
 ssh-keygen -t rsa -b 4096 -C $git_config_user_email
 eval "$(ssh-agent -s)"
@@ -58,67 +64,14 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 echo "source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions" >> ~/.zshrc
 source ~/.zshrc
 
-echo "Installing zsh syntax highlighting"
-git clone http://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-echo "source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting >> ~/.zshrc"
-source ~/.zshrc
-
 echo "Installing vscode"
 sudo snap install code --classic
 
 echo "Installing vscode extensions"
-code --install-extension eliverlara.andromeda
-code --install-extension formulahendry.auto-close-tag
-code --install-extension formulahendry.auto-rename-tag
-code --install-extension steoates.autoimport
-code --install-extension mgmcdermott.vscode-language-babel
-code --install-extension aaron-bond.better-comments
-code --install-extension coenraads.bracket-pair-colorizer
-code --install-extension pustelto.bracketeer
-code --install-extension wesbos.theme-cobalt2
-code --install-extension wiggin77.codedox
-code --install-extension bierner.color-info
-code --install-extension kamikillerto.vscode-colorize
-code --install-extension exodiusstudios.comment-anchors
-code --install-extension stackbreak.comment-divider
-code --install-extension alexdima.copy-relative-path
-code --install-extension pranaygp.vscode-css-peek
-code --install-extension denoland.vscode-deno
-code --install-extension editorconfig.editorconfig
-code --install-extension digitalbrainstem.javascript-ejs-support
-code --install-extension dsznajder.es7-react-js-snippets
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension toba.vsfire
-code --install-extension golang.go
-code --install-extension prisma.vscode-graphql
-code --install-extension ecmel.vscode-html-css
-code --install-extension abusaidm.html-snippets
-code --install-extension kisstkondoros.vscode-gutter-preview
-code --install-extension zignd.html-css-class-completion
-code --install-extension xabikos.javascriptsnippets
-code --install-extension lllllllqw.jsdoc
-code --install-extension ritwickdey.live-sass
-code --install-extension ritwickdey.liveserver
-code --install-extension tyriar.lorem-ipsum
-code --install-extension equinusocio.moxer-icons
-code --install-extension eg2.vscode-npm-script
-code --install-extension christian-kohler.npm-intellisense
-code --install-extension ibm.output-colorizer
-code --install-extension christian-kohler.path-intellisense
-code --install-extension esbenp.prettier-vscode
-code --install-extension richie5um2.vscode-sort-json
-code --install-extension visualstudioexptteam.vscodeintellicode
-code --install-extension jaspermorth.vscode-pigments
-code --install-extension jkjustjoshing.vscode-text-pastry
-code --install-extension jamesbirtles.svelte-vscode
-code --install-extension ardenivanov.svelte-intellisense
-code --install-extension alan.stylus
 code --install-extension shan.code-settings-sync
-code --install-extension hoovercj.vscode-power-mode
 
 echo "Installing nvm"
 sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash)"
-
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 source ~/.zshrc
@@ -146,7 +99,7 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt install --no-install-recommends yarn
 
-echo "Installing some npm global packages"
+echo "Installing some global packages"
 yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel
 
 echo "Installing google chrome"
@@ -165,8 +118,7 @@ echo "Installing albert"
 curl https://build.opensuse.org/projects/home:manuelschneid3r/public_key | sudo apt-key add -
 echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
 sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
-sudo apt update
-sudo apt install albert
+sudo apt-get install albert -y
 
 ###############################
 # Setting up LAMP stack tools #
@@ -189,18 +141,16 @@ sudo apt-get install mysql-server -y
 echo "Checking mysql status"
 sudo service mysql status
 
-echo "Installing phpmyadmin"
-sudo apt-get install phpmyadmin -y
-
-echo "Setting mysql password same as phpmyadmin"
+echo "Set up mysql password"
+sudo mysql
 
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
 
+echo "Installing phpmyadmin"
+sudo apt-get install phpmyadmin -y
+
 echo "Installing vlc"
 sudo snap install vlc -y
-
-echo "Installing spotify"
-sudo snap install spotify -y
 
 ##########################
 # Setting up macOS theme #
@@ -209,5 +159,8 @@ sudo snap install spotify -y
 echo "Installing gnome-tweaks"
 sudo apt-get install gnome-tweaks -y
 
-echo "Instaling gnome-shell-extension"
-sudo apt-get install gnome-shell-extension -y
+echo "Instaling gnome-shell-extensions"
+sudo apt-get install gnome-shell-extensions -y
+
+echo "Installing dconf-editor - for configuring ubuntu dock"
+sudo apt-get install dconf-editor -y

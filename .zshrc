@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hooiyan/.oh-my-zsh"
+# export PATH="$PATH:$(yarn global bin)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -108,7 +109,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # aliases
-alias open="nautilus"
+alias open="browse"
+alias dev="cd /media/hooiyan/HooiYan/dev"
 
 # git aliases
 alias init="git init"
