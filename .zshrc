@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hooiyan/.oh-my-zsh"
 # export PATH="$PATH:$(yarn global bin)"
+# export PATH="$(yarn global bin):$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -111,15 +112,22 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias open="browse"
 alias dev="cd /media/hooiyan/HooiYan/dev"
+alias c="code"
 
 # git aliases
-alias init="git init"
-alias log="git log"
+alias gi="git init"
 alias st='echo ""; echo "*********************************************"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "*********************************************"; echo ""; git status'
 alias pull="git pull"
 alias add="git add"
-alias ci="git commit -m"
+alias ci="git commit"
+alias cim="git commit -m"
 alias push="git push"
 alias clone="git clone"
 alias co="git checkout"
 alias gc="gitmoji -c"
+alias gl="git log --oneline"
+alias gd="git diff"
+alias grv="git remove -v"
+alias gra="git remote add"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
