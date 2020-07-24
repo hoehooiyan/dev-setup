@@ -82,9 +82,10 @@ echo "Checking the installed npm version..." | lolcat
 npm --version | lolcat
 
 echo "Installing yarn..." | lolcat
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt install --no-install-recommends yarn
+# curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+# echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+# sudo apt install --no-install-recommends yarn
+curl -o- -L https://yarnpkg.com/install.sh | bash
 
 echo "Installing some global packages..." | lolcat
 yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel
