@@ -3,8 +3,9 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hooiyan/.oh-my-zsh"
-# export PATH="$PATH:$(yarn global bin)"
-# export PATH="$(yarn global bin):$PATH"
+
+# Path to yarn global node packages installatio
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -129,5 +130,3 @@ alias gl="git log --oneline"
 alias gd="git diff"
 alias grv="git remove -v"
 alias gra="git remote add"
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

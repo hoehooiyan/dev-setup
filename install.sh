@@ -1,26 +1,51 @@
 echo "Verify yourself as $(whoami), please..."
 sudo apt-get update
-sudo apt-get install lolcat -y
-sudo apt-get install figlet -y
-sudo apt-get install cowsay -y
-sudo apt-get install fortune -y
+sudo apt-get install -y lolcat
+sudo apt-get install -y figlet
+sudo apt-get install -y cowsay
+sudo apt-get install -y fortune
 
 figlet "Welcome $(whoami) :)" | lolcat
 
-echo "Installing curl..." | lolcat
-sudo apt-get install curl -y
+echo "Installing spotify..." | lolcat
+sudo snap install spotify
+
+echo "Installing vlc..." | lolcat
+sudo snap install vlc
+
+echo "Installing gimp..." | lolcat
+sudo snap install gimp
+
+echo "Installing postman..." | lolcat
+sudo snap install postman
+
+echo "Installing heroku cli..." | lolcat
+# curl https://cli-assets.heroku.com/install.sh | sh # standalone installation
+sudo snap install --classic heroku # snap installation
+
+echo "Installing gnome-tweaks..." | lolcat
+sudo apt-get install -y gnome-tweaks
+
+echo "Instaling gnome-shell-extensions..." | lolcat
+sudo apt-get install -y gnome-shell-extensions
+
+echo "Installing dconf-editor..." | lolcat # for configuring ubuntu dock
+sudo apt-get install -y dconf-editor
+
+echo "Installing curl and wget..." | lolcat
+sudo apt-get install -y curl wget
 
 echo "Installing other essential..." | lolcat
-sudo apt-get install build-essential libssl-dev dkms linux-headers-$(uname -r) -y
+sudo apt-get install -y build-essential libssl-dev apt-transport-https ca-certificates gnupg-agent software-properties-common
 
 echo "Installing tool to handle clipboard via CLI..." | lolcat
-sudo apt-get install xclip -y
+sudo apt-get install -y xclip
 
 echo "Installing vim..." | lolcat
-sudo apt-get install vim -y
+sudo apt-get install -y vim
 
 echo "Installing git..." | lolcat
-sudo apt-get install git -y
+sudo apt-get install -y git
 
 echo "Checking the installed git version..." | lolcat
 git --version
@@ -43,8 +68,7 @@ echo "Installing zsh..." | lolcat
 sudo apt-get install zsh -y
 
 echo "Installing oh-my-zsh..." | lolcat
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-chsh -s /bin/zsh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 echo "Installing zsh autosuggestions..." | lolcat
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
@@ -58,7 +82,7 @@ echo "Installing vscode setting sync extension..." | lolcat
 code --install-extension shan.code-settings-sync
 
 echo "Installing nvm..." | lolcat
-sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash)"
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 source ~/.zshrc
@@ -68,6 +92,9 @@ nvm install node
 
 echo "Installing LTS version of node..." | lolcat
 nvm install --lts
+
+echo "Creating nvm default alias to latest node" | lolcat
+nvm alias default 12.18.3
 
 echo "Setting to use the LTS node version..." | lolcat
 nvm use --lts
@@ -82,19 +109,14 @@ echo "Checking the installed npm version..." | lolcat
 npm --version | lolcat
 
 echo "Installing yarn..." | lolcat
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt install --no-install-recommends yarn
+curl -o- -L https://yarnpkg.com/install.sh | bash
 
 echo "Installing some global packages..." | lolcat
 yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel
 
 echo "Installing google chrome..." | lolcat
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
-
-echo "Installing heroku cli..." | lolcat
-curl https://cli-assets.heroku.com/install.sh | sh
+sudo apt-get install ./google-chrome-stable_current_amd64.deb
 
 echo "Installing mongodb..." | lolcat
 sudo apt-get install gnupg -y
@@ -106,30 +128,28 @@ sudo systemctl start mongod
 sudo systemctl status mongod
 sudo systemctl enable mongod
 
-echo "Installing postman..." | lolcat
-wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
-sudo tar -xvzf postman-linux-x64.tar.gz -C /opt
-sudo ln -s /opt/Postman/Postman /usr/bin/postman
-cat << EOF > ~/.local/share/applications/postman2.desktop
-[Desktop Entry]
-Name=Postman
-GenericName=API Client
-X-GNOME-FullName=Postman API Client
-Comment=Make and view REST API calls and responses
-Keywords=api;
-Exec=/opt/Postman/Postman
-Terminal=false
-Type=Application
-Icon=/opt/Postman/app/resources/app/assets/icon.png
-Categories=Development;Utilities;
-EOF
-
 echo "Installing albert..." | lolcat
-curl https://build.opensuse.org/projects/home:manuelschneid3r/public_key | sudo apt-key add -
 echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
-sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
-sudo apt-get install albert -y
+curl -fsSL https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home:manuelschneid3r.gpg > /dev/null
+sudo apt-get update
+sudo apt-get install albert
 
+echo "Installing apache..." | lolcat
+sudo apt-get install -y apache2
+
+echo "Installing php..." | lolcat
+sudo apt-get install -y php libapache2-mod-php
+
+echo "Installing mysql server..." | lolcat
+sudo apt-get install -y mysql-server
+sudo service mysql status
+# sudo mysql
+# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+
+echo "Installing phpmyadmin..." | lolcat
+sudo apt-get install -y phpmyadmin
+
+# ------
 echo "Installing pgAdmin..." | lolcat
 # Install the public key for the repository (if not done previously):
 curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
@@ -138,44 +158,8 @@ sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_
 # Install for both desktop and web modes:
 sudo apt-get install pgadmin4 -y
 
-echo "Installing apache..." | lolcat
-sudo apt-get install apache2 -y
-
-echo "Installing php..." | lolcat
-sudo apt-get install php libapache2-mod-php -y
-
-echo "Installing mysql server..." | lolcat
-sudo apt-get install mysql-server -y
-
-echo "Checking mysql status..." | lolcat
-sudo service mysql status
-
-echo "Set up mysql password..." | lolcat
-sudo mysql
-
-echo "Installing phpmyadmin..." | lolcat
-sudo apt-get install phpmyadmin -y
-
-echo "Installing Android Studio..." | lolcat
-wget https://dl.google.com/dl/android/studio/ide-zips/4.0.1/android-studio-ide-193.6626763-linux.tar.gz
-sudo tar -xvzf android-studio-ide-193.6626763-linux.tar.gz
-cd android-studio && cd bin && ./studio.sh
-
-echo "Installing vlc..." | lolcat
-sudo snap install vlc -y
-
-echo "Installing gnome-tweaks..." | lolcat
-sudo apt-get install gnome-tweaks -y
-
-echo "Instaling gnome-shell-extensions..." | lolcat
-sudo apt-get install gnome-shell-extensions -y
-
-echo "Installing dconf-editor..." | lolcat # for configuring ubuntu dock
-sudo apt-get install dconf-editor -y
-
 # to be continued...
 # echo "Almost there... Now, please do the following..." | lolcat
 # echo "Now, please move index.html after index.php..." | lolcat
 # echo "Modifying access permission to apache folders for current user..." | lolcat
 # sudo chown hooiyan:hooiyan -R ./
-# echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';" | lolcat
