@@ -111,9 +111,21 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # aliases
+alias la="ls -a"
+alias lla="ls -la"
 alias open="browse"
+alias o="browse"
 alias dev="cd /media/hooiyan/HooiYan/dev"
 alias c="code"
+alias zshrc="code ~/.zshrc"
+alias bashrc="code ~/.bashrc"
+alias yl="yarn global list"
+alias yb="yarn global bin"
+alias yi="yarn install"
+alias ys="yarn start"
+alias ni="npm install"
+alias nr="npm run"
+alias ns="npm run start"
 
 # git aliases
 alias gi="git init"

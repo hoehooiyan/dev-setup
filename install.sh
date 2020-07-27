@@ -149,7 +149,7 @@ sudo service mysql status
 echo "Installing phpmyadmin..." | lolcat
 sudo apt-get install -y phpmyadmin
 
-# ------
+# ------ to be confirmed
 echo "Installing pgAdmin..." | lolcat
 # Install the public key for the repository (if not done previously):
 curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
