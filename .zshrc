@@ -126,6 +126,7 @@ alias ys="yarn start"
 alias ni="npm install"
 alias nr="npm run"
 alias ns="npm run start"
+alias nkill="npx npkill"
 
 # git aliases
 alias gi="git init"

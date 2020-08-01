@@ -13,6 +13,12 @@ sudo snap install spotify
 echo "Installing vlc..." | lolcat
 sudo snap install vlc
 
+echo "Installing obs studio..." | lolcat
+sudo snap install obs-studio
+
+echo "Installing figma linux..." | lolcat
+sudo snap install figma-linux
+
 echo "Installing gimp..." | lolcat
 sudo snap install gimp
 
