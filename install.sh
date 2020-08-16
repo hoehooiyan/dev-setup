@@ -25,6 +25,15 @@ sudo snap install gimp
 echo "Installing postman..." | lolcat
 sudo snap install postman
 
+echo "Installing insomnia..." | lolcat
+sudo snap install insomnia
+
+echo "Installing netbeans..." | lolcat
+sudo snap install netbeans
+
+echo "Installing eclipse..." | lolcat
+sudo snap install eclipse
+
 echo "Installing heroku cli..." | lolcat
 # curl https://cli-assets.heroku.com/install.sh | sh # standalone installation
 sudo snap install --classic heroku # snap installation
@@ -118,7 +127,7 @@ echo "Installing yarn..." | lolcat
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
 echo "Installing some global packages..." | lolcat
-yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel
+yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel firebase-tools
 
 echo "Installing google chrome..." | lolcat
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb

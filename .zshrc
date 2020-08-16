@@ -17,9 +17,11 @@ fortune | cowsay -f tux | lolcat
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="geoffgarside"
-# pi
+ZSH_THEME="duellj"
 # geoffgarside
+# xiong-chiamiov-plus
+# josh
+# duellj
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -127,6 +129,7 @@ alias ni="npm install"
 alias nr="npm run"
 alias ns="npm run start"
 alias nkill="npx npkill"
+alias htdocs="/opt/lampp/htdocs"
 
 # git aliases
 alias gi="git init"
@@ -143,3 +146,4 @@ alias gl="git log --oneline"
 alias gd="git diff"
 alias grv="git remove -v"
 alias gra="git remote add"
+alias gb="git branch"
