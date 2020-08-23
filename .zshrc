@@ -4,8 +4,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hooiyan/.oh-my-zsh"
 
-# Path to yarn global node packages installatio
+# Path to yarn global node packages installation
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Path to composer
+export PATH="/home/hooiyan/.config/composer/vendor/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -17,11 +20,13 @@ fortune | cowsay -f tux | lolcat
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="duellj"
+ZSH_THEME="gnzh"
 # geoffgarside
 # xiong-chiamiov-plus
 # josh
 # duellj
+# cloud
+# gnzh
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -129,6 +134,7 @@ alias ni="npm install"
 alias nr="npm run"
 alias ns="npm run start"
 alias nkill="npx npkill"
+alias startlampp="cd /opt/lampp && sudo ./manager-linux-x64.run"
 alias htdocs="/opt/lampp/htdocs"
 
 # git aliases
@@ -141,6 +147,7 @@ alias cim="git commit -m"
 alias push="git push"
 alias clone="git clone"
 alias co="git checkout"
+alias conew="git checkout -b"
 alias gc="gitmoji -c"
 alias gl="git log --oneline"
 alias gd="git diff"

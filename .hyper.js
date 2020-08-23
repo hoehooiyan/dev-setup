@@ -13,10 +13,10 @@ module.exports = {
 
     // font family with optional fallbacks
     fontFamily:
-      "'IBM Plex Mono', 'Ubuntu Mono', 'JetBrains Mono', 'Operator Mono', 'Dank Mono', 'Inconsolata', Consolas, monospace",
+      "'Anonymous Pro', 'IBM Plex Mono', 'Ubuntu Mono', 'JetBrains Mono', 'Operator Mono', 'Dank Mono', 'Inconsolata', Consolas, monospace",
 
     // default font weight: 'normal' or 'bold'
-    fontWeight: 500,
+    fontWeight: 600,
 
     // font weight for bold characters: 'normal' or 'bold'
     fontWeightBold: 'normal',
