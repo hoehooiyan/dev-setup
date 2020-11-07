@@ -56,6 +56,9 @@ sudo apt-get install -y build-essential libssl-dev apt-transport-https ca-certif
 echo "Installing tool to handle clipboard via CLI..." | lolcat
 sudo apt-get install -y xclip
 
+echo "Installing Microsoft core fonts..." | lolcat
+sudo apt-get install ttf-mscorefonts-installer
+
 echo "Installing vim..." | lolcat
 sudo apt-get install -y vim
 
@@ -127,7 +130,7 @@ echo "Installing yarn..." | lolcat
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
 echo "Installing some global packages..." | lolcat
-yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel firebase-tools
+yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel firebase-tools @vue/cli
 
 echo "Installing google chrome..." | lolcat
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
