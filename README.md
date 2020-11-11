@@ -32,7 +32,7 @@
 28. [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
 29. [Spotify](https://www.spotify.com/us/download/windows/)
 
-## Fonts that I like to use
+## Fonts that I like to use interchangeably
 
 - [Anonymous Pro](https://fonts.google.com/specimen/Anonymous+Pro)
 - [Cascadia Code](https://github.com/microsoft/cascadia-code/releases)
