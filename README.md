@@ -31,6 +31,9 @@
 27. [Git](https://git-scm.com/download/win)
 28. [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
 29. [Spotify](https://www.spotify.com/us/download/windows/)
+30. [Steam](https://store.steampowered.com/about/)
+31. [Zoom](https://zoom.us/download)
+32. [Foxit Reader](https://www.foxitsoftware.com/pdf-reader/)
 
 ## Fonts that I like to use interchangeably
 
