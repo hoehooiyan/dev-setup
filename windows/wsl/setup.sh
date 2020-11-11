@@ -1,10 +1,11 @@
 sudo apt-get update
 
 # Install some of the 'fancy' stuff that I like
-sudo apt-get install -y lolcat
-sudo apt-get install -y figlet
-sudo apt-get install -y cowsay
-sudo apt-get install -y fortune
+sudo apt-get install lolcat -y
+sudo apt-get install figlet -y
+sudo apt-get install cowsay -y
+sudo apt-get install fortune -y
+sudo apt-get install youtube-dl -y
 
 # Install Speedtest cli
 sudo apt-get install gnupg1 apt-transport-https dirmngr
@@ -73,3 +74,14 @@ sudo apt-get install phpmyadmin
 sudo apache2ctl stop
 sudo apache2ctl start
 # username: root, password: mysql password
+
+
+# Install Java development toolkit
+# Check for the LTS and latest version
+# sudo apt search openjdk
+sudo apt-get update
+sudo apt-get install openjdk-14-jdk-headless
+
+# Bookmark the path based on the system in browser
+# /usr/share/doc/openjdk-14-doc/api/index.html
+sudo apt-get install openjdk-14-doc
