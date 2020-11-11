@@ -130,7 +130,7 @@ echo "Installing yarn..." | lolcat
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
 echo "Installing some global packages..." | lolcat
-yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel firebase-tools @vue/cli
+yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel firebase-tools @vue/cli @sanity/cli
 
 echo "Installing google chrome..." | lolcat
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
