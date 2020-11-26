@@ -20,3 +20,4 @@ choco install devdocs-app -y
 choco install obs-studio -y
 choco install 7zip -y
 choco install foxitreader -y
+choco install lxrunoffline -y
