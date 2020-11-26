@@ -35,7 +35,7 @@
             "fontFace": "Victor Mono",
             "fontSize": 13,
             "fontWeight": 700,
-            "startingDirectory": "C:\\Users\\hoeho\\dev"
+            "startingDirectory": "//wsl$/Ubuntu-20.04/home/hooiyan/code"
             // "useAcrylic": true,
             // "acrylicOpacity": 0.5,
         },

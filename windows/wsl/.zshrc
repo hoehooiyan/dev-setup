@@ -1,4 +1,4 @@
-# Set the starting directory to dev folder
+# Set the starting directory to code folder
 cd ~/code
 
 fortune | cowsay -f tux | lolcat
