@@ -1,4 +1,4 @@
-# Set the starting directory to code folder
+# Set the starting directory to dev folder
 cd ~/code
 
 fortune | cowsay -f tux | lolcat
@@ -127,6 +127,7 @@ alias nr="npm run"
 alias ns="npm run start"
 alias nkill="npx npkill"
 alias python="python3"
+alias pyc="/mnt/c/Program\ Files/JetBrains/PyCharm\ Community\ Edition\ 2020.2.3/bin/pycharm64.exe"
 
 # git aliases
 alias gi="git init"
