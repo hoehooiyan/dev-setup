@@ -66,6 +66,14 @@
                 "hidden": false,
                 "name": "Ubuntu-20.04",
                 "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceee452369}",
+                "name": "Anaconda",
+                "icon": "%USERPROFILE%\\Anaconda3\\Menu\\anaconda-navigator.ico",
+                "commandline": "cmd.exe /K C:\\Users\\hoeho\\Anaconda3\\Scripts\\activate.bat",
+                "hidden": false,
+                "startingDirectory": "C:\\Users\\hoeho\\code"
             }
         ]
     },
