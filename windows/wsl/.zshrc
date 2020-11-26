@@ -1,5 +1,5 @@
 # Set the starting directory to dev folder
-cd ~/dev
+cd ~/code
 
 fortune | cowsay -f tux | lolcat
 
@@ -11,6 +11,8 @@ export ZSH="/home/hooiyan/.oh-my-zsh"
 
 # Path to your yarn installation
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
