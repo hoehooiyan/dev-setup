@@ -1,5 +1,5 @@
 # Set the starting directory to dev folder
-cd ~/code
+# cd ~/code
 
 fortune | cowsay -f tux | lolcat
 
@@ -13,6 +13,8 @@ export ZSH="/home/hooiyan/.oh-my-zsh"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
+
+export PATH=~/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -126,8 +128,11 @@ alias ni="npm install"
 alias nr="npm run"
 alias ns="npm run start"
 alias nkill="npx npkill"
-alias python="python3"
 alias pyc="/mnt/c/Program\ Files/JetBrains/PyCharm\ Community\ Edition\ 2020.2.3/bin/pycharm64.exe"
+alias jpn="~/.local/bin/jupyter-notebook --no-browser"
+alias lamp="cd /var/www/html"
+alias lampstart="sudo apache2ctl start && sudo service mysql start"
+alias lampstop="sudo apache2ctl stop && sudo service mysql stop"
 
 # git aliases
 alias gi="git init"
