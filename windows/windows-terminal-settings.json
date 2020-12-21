@@ -8,7 +8,7 @@
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
 
-    "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+    "defaultProfile": "{192761ed-7730-447b-9715-50f35c26924a}",
 
     // You can add more global application settings here.
     // To learn more about global settings, visit https://aka.ms/terminal-global-settings
@@ -21,59 +21,68 @@
 
     // A profile specifies a command to execute paired with information about how it should look and feel.
     // Each one of them will appear in the 'New Tab' dropdown,
-    //   and can be invoked from the commandline with `wt.exe -p xxx`
+    // and can be invoked from the commandline with `wt.exe -p xxx`
     // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
     "profiles":
     {
+        "initialCols": 60,
+        "initialRows": 60,
         "defaults":
         {
             // Put settings here that you want to apply to all profiles.
-            "backgroundImage": "C:\\Users\\hoeho\\OneDrive\\Pictures\\Goodnight.png",
-            "backgroundImageOpacity": 0.5,
-            "colorScheme": "Cobalt2",
+            // "backgroundImage": "C:\\Users\\hoeho\\OneDrive\\Pictures\\Goodnight.png",
+            // "backgroundImageOpacity": 0.5,
+            // "background": "#06090F",
+            "background": "#111222",
+            "foreground": "#00ff00",
+            // "foreground": "#C9D1D9",
+            // "colorScheme": "Ubuntu",
             "cursorShape": "underscore",
-            "fontFace": "Victor Mono",
-            "fontSize": 13,
-            "fontWeight": 700,
-            "startingDirectory": "//wsl$/Ubuntu-20.04/home/hooiyan/code"
+            "fontFace": "Anonymous Pro",
+            "fontSize": 15,
+            "fontWeight": 600,
+            "startingDirectory": "C:\\cygwin\\home\\hooiyan"
             // "useAcrylic": true,
-            // "acrylicOpacity": 0.5,
+            // "acrylicOpacity": 0.9
         },
         "list":
         [
             {
-                // Make changes here to the powershell.exe profile.
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "name": "Windows PowerShell",
-                "commandline": "powershell.exe",
-                "hidden": false
+                "guid": "{192761ed-7730-447b-9715-50f35c26924a}",
+                "name": "Cygwin",
+                "icon": "C:\\cygwin64\\Cygwin.ico",
+                "commandline": "cmd.exe /K C:\\cygwin64\\Cygwin.bat",
+                "hidden": false,
+                "startingDirectory": "C:\\cygwin\\home\\hooiyan"
+            },
+            {
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "hidden": false,
+                "name": "Ubuntu-20.04",
+                "source": "Windows.Terminal.Wsl",
+                "startingDirectory": "//wsl$/Ubuntu-20.04/home/hooiyan/code/hoehooiyan",
             },
             {
                 // Make changes here to the cmd.exe profile.
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "name": "Command Prompt",
                 "commandline": "cmd.exe",
-                "hidden": false
+                "hidden": false,
+                "startingDirectory": "C:\\Users\\hoeho"
+            },
+            {
+                // Make changes here to the powershell.exe profile.
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "Windows PowerShell",
+                "commandline": "powershell.exe",
+                "hidden": false,
+                "startingDirectory": "C:\\Users\\hoeho"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-                "hidden": false,
-                "name": "Ubuntu-20.04",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceee452369}",
-                "name": "Anaconda",
-                "icon": "%USERPROFILE%\\Anaconda3\\Menu\\anaconda-navigator.ico",
-                "commandline": "cmd.exe /K C:\\Users\\hoeho\\Anaconda3\\Scripts\\activate.bat",
-                "hidden": false,
-                "startingDirectory": "C:\\Users\\hoeho\\code"
             }
         ]
     },
@@ -81,27 +90,6 @@
     // Add custom color schemes to this array.
     // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
     "schemes": [
-        {
-            "name": "ayu",
-            "black": "#000000",
-            "red": "#ff3333",
-            "green": "#b8cc52",
-            "yellow": "#e7c547",
-            "blue": "#36a3d9",
-            "purple": "#f07178",
-            "cyan": "#95e6cb",
-            "white": "#ffffff",
-            "brightBlack": "#323232",
-            "brightRed": "#ff6565",
-            "brightGreen": "#eafe84",
-            "brightYellow": "#fff779",
-            "brightBlue": "#68d5ff",
-            "brightPurple": "#ffa3aa",
-            "brightCyan": "#c7fffd",
-            "brightWhite": "#ffffff",
-            "background": "#0f1419",
-            "foreground": "#e6e1cf"
-        },
         {
             "name": "Cobalt2",
             "black": "#000000",
@@ -124,88 +112,46 @@
             "foreground": "#ffffff"
         },
         {
-            "name": "TokyoNight",
-            "black": "#363b54",
-            "red": "#f7768e",
-            "green": "#41a6b5",
-            "yellow": "#e0af68",
-            "blue": "#7aa2f7",
-            "purple": "#bb9af7",
-            "cyan": "#7dcfff",
-            "white": "#787c99",
-            "brightBlack": "#363b54",
-            "brightRed": "#f7768e",
-            "brightGreen": "#41a6b5",
-            "brightYellow": "#e0af68",
-            "brightBlue": "#7aa2f7",
-            "brightPurple": "#bb9af7",
-            "brightCyan": "#7dcfff",
-            "brightWhite": "#acb0d0",
-            "background": "#16161e",
-            "foreground": "#787c99"
-        },
-        {
-            "name": "Gruvbox Dark",
-            "black": "#1e1e1e",
-            "red": "#be0f17",
-            "green": "#868715",
-            "yellow": "#cc881a",
-            "blue": "#377375",
-            "purple": "#a04b73",
-            "cyan": "#578e57",
-            "white": "#978771",
-            "brightBlack": "#7f7061",
-            "brightRed": "#f73028",
-            "brightGreen": "#aab01e",
-            "brightYellow": "#f7b125",
-            "brightBlue": "#719586",
-            "brightPurple": "#c77089",
-            "brightCyan": "#7db669",
-            "brightWhite": "#e6d4a3",
-            "background": "#1e1e1e",
-            "foreground": "#e6d4a3"
-        },
-        {
-            "name": "synthwave-everything",
-            "black": "#fefefe",
-            "red": "#f97e72",
-            "green": "#72f1b8",
-            "yellow": "#fede5d",
-            "blue": "#6d77b3",
-            "purple": "#c792ea",
-            "cyan": "#f772e0",
-            "white": "#fefefe",
-            "brightBlack": "#fefefe",
-            "brightRed": "#f88414",
-            "brightGreen": "#72f1b8",
-            "brightYellow": "#fff951",
-            "brightBlue": "#36f9f6",
-            "brightPurple": "#e1acff",
-            "brightCyan": "#f92aad",
-            "brightWhite": "#fefefe",
-            "background": "#2a2139",
-            "foreground": "#f0eff1"
-        },
-        {
-            "name": "Andromeda",
+            "name": "Pandora",
             "black": "#000000",
-            "red": "#cd3131",
-            "green": "#05bc79",
-            "yellow": "#e5e512",
-            "blue": "#2472c8",
-            "purple": "#bc3fbc",
-            "cyan": "#0fa8cd",
-            "white": "#e5e5e5",
-            "brightBlack": "#666666",
-            "brightRed": "#cd3131",
-            "brightGreen": "#05bc79",
-            "brightYellow": "#e5e512",
-            "brightBlue": "#2472c8",
-            "brightPurple": "#bc3fbc",
-            "brightCyan": "#0fa8cd",
-            "brightWhite": "#e5e5e5",
-            "background": "#262a33",
-            "foreground": "#e5e5e5"
+            "red": "#ff4242",
+            "green": "#74af68",
+            "yellow": "#ffad29",
+            "blue": "#338f86",
+            "purple": "#9414e6",
+            "cyan": "#23d7d7",
+            "white": "#e2e2e2",
+            "brightBlack": "#3f5648",
+            "brightRed": "#ff3242",
+            "brightGreen": "#74cd68",
+            "brightYellow": "#ffb929",
+            "brightBlue": "#23d7d7",
+            "brightPurple": "#ff37ff",
+            "brightCyan": "#00ede1",
+            "brightWhite": "#ffffff",
+            "background": "#141e43",
+            "foreground": "#e1e1e1"
+        },
+        {
+            "name": "Ubuntu",
+            "black": "#2e3436",
+            "red": "#cc0000",
+            "green": "#4e9a06",
+            "yellow": "#c4a000",
+            "blue": "#3465a4",
+            "purple": "#75507b",
+            "cyan": "#06989a",
+            "white": "#d3d7cf",
+            "brightBlack": "#555753",
+            "brightRed": "#ef2929",
+            "brightGreen": "#8ae234",
+            "brightYellow": "#fce94f",
+            "brightBlue": "#729fcf",
+            "brightPurple": "#ad7fa8",
+            "brightCyan": "#34e2e2",
+            "brightWhite": "#eeeeec",
+            "background": "#300a24",
+            "foreground": "#eeeeec"
         }
     ],
 
@@ -221,12 +167,14 @@
         { "command": "paste", "keys": "ctrl+v" },
 
         // Press Ctrl+Shift+F to open the search box
-        { "command": "find", "keys": "ctrl+shift+f" },
+        { "command": "find", "keys": "ctrl+f" },
 
         // Press Alt+Shift+D to open a new pane.
         // - "split": "auto" makes this pane open in the direction that provides the most surface area.
         // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
         // To learn more about panes, visit https://aka.ms/terminal-panes
-        { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" }, 
+        { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+t" },
+        // Open New Tab
+        {"command":"newTab", "keys": "ctrl+t"}
     ]
 }
