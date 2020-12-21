@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 date
+cd code/hoehooiyan
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hooiyan/.oh-my-zsh"
@@ -113,9 +114,9 @@ alias lla="ls -la"
 alias open="explorer.exe"
 alias o="explorer.exe"
 alias c="code"
-alias bashrc="code .bashrc"
-alias zshrc="code .zshrc"
-alias zshh="code .zsh_history"
+alias bashrc="code C:/cygwin64/home/hooiyan/.bashrc"
+alias zshrc="code C:/cygwin64/home/hooiyan/.zshrc"
+alias zshh="code C:/cygwin64/home/hooiyan/.zsh_history"
 alias yl="yarn global list"
 alias yb="yarn global bin"
 alias yi="yarn install"
