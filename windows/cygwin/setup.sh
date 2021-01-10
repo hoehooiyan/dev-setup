@@ -10,6 +10,7 @@ git clone git@github.com:hoehooiyan/hoehooiyan.com.git
 git clone git@github.com:hoehooiyan/think-python.git
 git clone git@github.com:hoehooiyan/python-for-everybody.git
 git clone git@github.com:hoehooiyan/100daysofpython.git
+git clone git@github.com:hoehooiyan/c-lang.git
 
 # wesbos
 git clone git@github.com:wesbos/JavaScript30.git
