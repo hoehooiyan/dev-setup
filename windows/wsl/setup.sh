@@ -48,7 +48,7 @@ nvm use --lts
 # Use yarn as my global package manager & install some global packages
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
-yarn global add npm-check-updates npm-quick-run eslint lite-server serve gatsby-cli gitmoji-cli @vue/cli @sanity/cli vercel firebase-tools 
+yarn global add npm-check-updates npm-quick-run eslint lite-server serve gatsby-cli gitmoji-cli @vue/cli @sanity/cli vercel firebase-tools expo-cli
 
 
 # Install LAMP stack
