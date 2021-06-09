@@ -7,6 +7,9 @@ sudo apt-get install -y fortune
 
 figlet "Welcome $(whoami) :)" | lolcat
 
+echo "Installing vscode..." | lolcat
+sudo snap install code --classic
+
 echo "Installing spotify..." | lolcat
 sudo snap install spotify
 
@@ -15,12 +18,6 @@ sudo snap install vlc
 
 echo "Installing obs studio..." | lolcat
 sudo snap install obs-studio
-
-echo "Installing figma linux..." | lolcat
-sudo snap install figma-linux
-
-echo "Installing gimp..." | lolcat
-sudo snap install gimp
 
 echo "Installing postman..." | lolcat
 sudo snap install postman
@@ -53,8 +50,10 @@ sudo apt-get install ttf-mscorefonts-installer
 echo "Installing vim..." | lolcat
 sudo apt-get install -y vim
 
-echo "Installing git..." | lolcat
-sudo apt-get install -y git
+echo "Installing the latest git from PPA..." | lolcat
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
 
 echo "Checking the installed git version..." | lolcat
 git --version
@@ -67,46 +66,21 @@ echo "What email do you want to use in GIT user.email" | lolcat
 read git_config_user_email
 git config --global user.email "$git_config_user_email"
 
-echo "Generating SSH key for GitHub..." | lolcat
-ssh-keygen -t rsa -b 4096 -C $git_config_user_email
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
-
-echo "Installing zsh..." | lolcat
-sudo apt-get install zsh -y
-
-echo "Installing oh-my-zsh..." | lolcat
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-
-echo "Installing zsh autosuggestions..." | lolcat
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-echo "source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions" >> ~/.zshrc
+echo "Installing zsh stuff..." | lolcat
+# Step 1
+sudo apt install zsh
+# Step 2
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Step 3
 source ~/.zshrc
-
-echo "Installing vscode..." | lolcat
-sudo snap install code --classic
-
-echo "Installing vscode setting sync extension..." | lolcat
-code --install-extension shan.code-settings-sync
-
-echo "Installing nvm..." | lolcat
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-source ~/.zshrc
-
-echo "Installing node..." | lolcat
-nvm install node
-
-echo "Installing LTS version of node..." | lolcat
+# Step 4
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+# Step 5
 nvm install --lts
-
-echo "Creating nvm default alias to latest node" | lolcat
-nvm alias default 12.18.3
-
-echo "Setting to use the LTS node version..." | lolcat
-nvm use --lts
+# Step 6
+nvm upgrade
+# Step 7
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 echo "Checking the installed nvm version..." | lolcat
 nvm --version | lolcat
@@ -117,58 +91,27 @@ node --version | lolcat
 echo "Checking the installed npm version..." | lolcat
 npm --version | lolcat
 
-echo "Installing yarn..." | lolcat
-curl -o- -L https://yarnpkg.com/install.sh | bash
+echo "Generating SSH key for GitHub..." | lolcat
+ssh-keygen -t rsa -b 4096 -C $git_config_user_email
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 
 echo "Installing some global packages..." | lolcat
-yarn global add npm-check-updates npm-quick-run lite-server serve gatsby-cli gitmoji-cli eslint vercel firebase-tools @vue/cli @sanity/cli expo-cli
-
-echo "Installing google chrome..." | lolcat
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt-get install ./google-chrome-stable_current_amd64.deb
-
-echo "Installing mongodb..." | lolcat
-sudo apt-get install gnupg -y
-wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
-sudo apt-get update
-sudo apt-get install -y mongodb-org
-sudo systemctl start mongod
-sudo systemctl status mongod
-sudo systemctl enable mongod
+npm install npm-check-updates npm-quick-run lite-server serve gitmoji-cli -g
 
 echo "Installing albert..." | lolcat
+# reference: https://albertlauncher.github.io/installing/
+curl https://build.opensuse.org/projects/home:manuelschneid3r/public_key | sudo apt-key add -
 echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
-curl -fsSL https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home:manuelschneid3r.gpg > /dev/null
+sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
+sudo apt update
+sudo apt install albert
+
+echo "Installing speedtest..." | lolcat
+sudo apt-get install gnupg1 apt-transport-https dirmngr
+export INSTALL_KEY=379CE192D401AB61
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $INSTALL_KEY
+echo "deb https://ookla.bintray.com/debian generic main" | sudo tee  /etc/apt/sources.list.d/speedtest.list
 sudo apt-get update
-sudo apt-get install albert
-
-echo "Installing apache..." | lolcat
-sudo apt-get install -y apache2
-
-echo "Installing php..." | lolcat
-sudo apt-get install -y php libapache2-mod-php
-
-echo "Installing mysql server..." | lolcat
-sudo apt-get install -y mysql-server
-sudo service mysql status
-# sudo mysql
-# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
-
-echo "Installing phpmyadmin..." | lolcat
-sudo apt-get install -y phpmyadmin
-
-# ------ to be confirmed
-echo "Installing pgAdmin..." | lolcat
-# Install the public key for the repository (if not done previously):
-curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
-# Create the repository configuration file:
-sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
-# Install for both desktop and web modes:
-sudo apt-get install pgadmin4 -y
-
-# to be continued...
-# echo "Almost there... Now, please do the following..." | lolcat
-# echo "Now, please move index.html after index.php..." | lolcat
-# echo "Modifying access permission to apache folders for current user..." | lolcat
-# sudo chown hooiyan:hooiyan -R ./
+sudo apt-get install speedtest
