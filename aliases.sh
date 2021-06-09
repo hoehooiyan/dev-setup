@@ -1,35 +1,6 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="/home/h2y/.oh-my-zsh"
-
-# Path to z.sh
-. ~/z.sh
-
-# Set the starting directory
-cd ~/dev/hoehooiyan
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="macos-zsh-theme/macos-theme"
-# amuse
-# half-life
-# macos-zsh-theme/macos-theme
-# spaceship
-# theunraveler
-# zhann
-
-# Load plugins
-plugins=(zsh-nvm zsh-autosuggestions git)
-
-source $ZSH/oh-my-zsh.sh
-
-# ---------------------
-# Aliases
-# ---------------------
+# references
+# https://github.com/kentcdodds/dotfiles/blob/main/.zshrc
+# https://github.com/w3cj/dotfiles
 
 # custom aliases
 alias c="code"

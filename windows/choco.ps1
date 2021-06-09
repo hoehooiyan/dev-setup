@@ -13,7 +13,6 @@ choco install calibre -y
 choco install vscode -y
 choco install anki -y
 choco install postman -y
-choco install insomnia-rest-api-client -y
 choco install devdocs-app -y
 choco install obs-studio -y
 choco install audacity -y

@@ -25,15 +25,6 @@ sudo snap install gimp
 echo "Installing postman..." | lolcat
 sudo snap install postman
 
-echo "Installing insomnia..." | lolcat
-sudo snap install insomnia
-
-echo "Installing netbeans..." | lolcat
-sudo snap install netbeans
-
-echo "Installing eclipse..." | lolcat
-sudo snap install eclipse
-
 echo "Installing heroku cli..." | lolcat
 # curl https://cli-assets.heroku.com/install.sh | sh # standalone installation
 sudo snap install --classic heroku # snap installation
