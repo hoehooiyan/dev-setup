@@ -22,6 +22,9 @@ sudo snap install obs-studio
 echo "Installing postman..." | lolcat
 sudo snap install postman
 
+echo "Installing calibre..." | lolcat
+sudo apt-get install -y calibre
+
 echo "Installing heroku cli..." | lolcat
 # curl https://cli-assets.heroku.com/install.sh | sh # standalone installation
 sudo snap install --classic heroku # snap installation
