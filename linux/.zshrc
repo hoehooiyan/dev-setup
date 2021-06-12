@@ -17,7 +17,7 @@ cd ~/dev/hoehooiyan
 ZSH_THEME="macos-zsh-theme/macos-theme"
 # amuse
 # half-life
-#https://github.com/alejandromume/macos-zsh-theme/#installation
+# https://github.com/alejandromume/macos-zsh-theme/#installation
 # macos-zsh-theme/macos-theme
 # spaceship
 # theunraveler
