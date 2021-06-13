@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/h2y/.oh-my-zsh"
 
+# Path to yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # Path to z.sh
 . ~/z.sh
 
@@ -17,7 +20,6 @@ cd ~/dev/hoehooiyan
 ZSH_THEME="macos-zsh-theme/macos-theme"
 # amuse
 # half-life
-# https://github.com/alejandromume/macos-zsh-theme/#installation
 # macos-zsh-theme/macos-theme
 # spaceship
 # theunraveler
@@ -42,6 +44,7 @@ alias vz="vim ~/.zshrc"
 alias cz="code ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias hoe="cd ~/dev/hoehooiyan"
+alias ew="cd ~/eclipse-workspace"
 alias pg="echo 'Pinging Google' && ping www.google.com"
 
 # git aliases
@@ -78,3 +81,7 @@ alias nr="npm run"
 alias ns="npm run start"
 alias nkill="npx npkill"
 alias ng="npm list -g --depth 0"
+
+# yarn aliases
+alias ys="yarn start"
+alias yd="yarn dev"
