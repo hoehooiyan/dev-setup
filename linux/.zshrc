@@ -7,6 +7,9 @@ export ZSH="/home/h2y/.oh-my-zsh"
 # Path to yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# Path to anaconda
+export PATH="/home/h2y/anaconda3/bin:$PATH"
+
 # Path to z.sh
 . ~/z.sh
 
@@ -85,3 +88,21 @@ alias ng="npm list -g --depth 0"
 # yarn aliases
 alias ys="yarn start"
 alias yd="yarn dev"
+alias yi="yarn install"
+alias yb="yarn set version berry"
+alias ybb="yarn set version berry"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/h2y/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/h2y/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/h2y/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/h2y/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
