@@ -101,7 +101,7 @@ ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 
 echo "Installing some global packages..." | lolcat
-npm install npm-check-updates npm-quick-run lite-server serve gitmoji-cli -g
+npm install npm-check-updates npm-quick-run lite-server serve gitmoji-cli eslint nodemon trash-cli -g
 
 echo "Installing albert..." | lolcat
 # reference: https://albertlauncher.github.io/installing/
