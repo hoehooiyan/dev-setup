@@ -20,7 +20,7 @@ cd ~/dev/hoehooiyan
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="macos-zsh-theme/macos-theme"
+ZSH_THEME="arrow"
 # amuse
 # half-life
 # macos-zsh-theme/macos-theme
@@ -48,6 +48,7 @@ alias cz="code ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias hoe="cd ~/dev/hoehooiyan"
 alias ew="cd ~/eclipse-workspace"
+alias hd="cd /media/h2y/hooiyan"
 alias pg="echo 'Pinging Google' && ping www.google.com"
 
 # git aliases
