@@ -38,11 +38,18 @@ source $ZSH/oh-my-zsh.sh
 # ---------------------
 
 # custom aliases
+alias update="sudo apt-get update"
+alias ud="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade"
+alias ug="sudo apt-get upgrade"
+alias autoremove="sudo apt-get autoremove"
+alias ar="sudo apt-get autoremove"
 alias c="code"
 alias la="ls -a"
 alias lla="ls -la"
 alias open="xdg-open"
 alias o="xdg-open"
+alias ydl="youtube-dl"
 alias vz="vim ~/.zshrc"
 alias cz="code ~/.zshrc"
 alias sz="source ~/.zshrc"
